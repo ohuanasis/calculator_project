@@ -2,7 +2,6 @@
 
 simple example project for a good approach for a layered package with one framework-independent core. The console, Flask/API, and PyQt projects become thin entry points that call the same application services.
 
-
 CLI-first Python calculator structured so its core logic can later be reused by Flask and PyQt interfaces.
 
 ## Initial structure
@@ -42,4 +41,29 @@ from calculator import Calculator
 
 calculator = Calculator()
 result = calculator.add(10, 2)
+```
+
+## Run the CLI
+
+Create a virtual environment and install the project:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install --editable ".[test]"
+```
+
+Run the installed command with two numbers:
+
+```powershell
+calculator 10 2
+```
+
+Example output:
+
+```text
+Addition:       12.0
+Subtraction:    8.0
+Multiplication: 20.0
+Division:       5.0
 ```
